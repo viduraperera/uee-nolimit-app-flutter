@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1078184360983",
+    "project_id": "uee-app",
+    "storage_bucket": "uee-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078184360983:android:f525280c8e478e9f973052",
+        "android_client_info": {
+          "package_name": "com.santosenoque.untitled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078184360983-i056i69uao5kjkafe9robpv69stokfhn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChDKsF__g1JnlIWS4s7nofOyu5-j-cil8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078184360983-i056i69uao5kjkafe9robpv69stokfhn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
