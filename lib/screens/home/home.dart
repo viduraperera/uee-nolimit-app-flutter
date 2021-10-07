@@ -2,30 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:untitled/constants/controllers.dart';
+import 'package:untitled/models/product.dart';
 import 'package:untitled/screens/all_items/Allitems.dart';
 import 'package:untitled/screens/home/widgets/new_arrival.dart';
 import 'package:untitled/screens/home/widgets/new_trending.dart';
 import 'package:untitled/screens/home/widgets/products.dart';
 import 'package:untitled/screens/home/widgets/shopping_cart.dart';
 import 'package:untitled/screens/payments/payments.dart';
+import 'package:untitled/screens/single_item/singleItem.dart';
 import 'package:untitled/widgets/custom_drawer.dart';
 import 'package:untitled/widgets/custom_text.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
 
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
 
-class _HomeScreenState extends State<HomeScreen> {
-
-  @override
-  void initState() {
-    super.initState();
-    producsController.addToTrending();
-    producsController.addToNewArrivals();
-  }
+  const HomeScreen({Key key, }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(width: 150),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => AllItems(),
+                          ));
+                        },
                         child: Text("VIEW ALL"),
                       ),
                     ],
@@ -103,7 +98,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       SizedBox(width: 150),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => AllItems(),
+                          ));
+                        },
                         child: Text("VIEW ALL"),
                       ),
                     ],
@@ -120,6 +119,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ));
   }
 }
+
+
+
 
 
 

@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:untitled/constants/controllers.dart';
+import 'package:untitled/models/product.dart';
+import 'package:untitled/screens/home/widgets/single_product.dart';
+import 'package:untitled/screens/single_item/singleItem.dart';
 
 class CardItem {
   final String newImage;
@@ -38,12 +43,11 @@ class Ladies extends StatelessWidget {
       itemBuilder: (context, index) =>
           buildCard(item: items[index]),
     );
+
   }
 }
 
-Widget buildCard({
-  CardItem item,
-}) =>
+Widget buildCard({CardItem item}) =>
     Container(
       width: 140,
       child: Column(
@@ -56,13 +60,15 @@ Widget buildCard({
                 child:Material(
                   child: Ink.image(
                     image: NetworkImage(item.newImage),
-                      fit: BoxFit.cover,
-                      child: InkWell(
-                        onTap: () {}
-                      ),
+                    fit: BoxFit.cover,
+                    child: InkWell(
+                        onTap: () {
+
+                        }
                     ),
                   ),
                 ),
+              ),
             ),
           ),
           const SizedBox(height: 2),
@@ -70,3 +76,4 @@ Widget buildCard({
         ],
       ),
     );
+

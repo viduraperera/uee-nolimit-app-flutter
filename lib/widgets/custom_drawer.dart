@@ -7,6 +7,7 @@ import 'package:untitled/screens/all_items/Allitems.dart';
 import 'package:untitled/screens/catagory/catergory.dart';
 import 'package:untitled/screens/home/home.dart';
 import 'package:untitled/screens/home/widgets/shopping_cart.dart';
+import 'package:untitled/screens/profile/profile.dart';
 
 import 'custom_text.dart';
 
@@ -47,7 +48,11 @@ class CustomDrawer extends StatelessWidget {
             title: CustomText(
               text: "Profile",
             ),
-            onTap: ()async {},
+            onTap: ()async {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => UserProfile(),
+              ));
+            },
           ),
           ListTile(
             leading: Icon(Icons.category),
@@ -66,7 +71,6 @@ class CustomDrawer extends StatelessWidget {
               text: "All Items",
             ),
             onTap: ()async {
-              producsController.addToTrending();
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => AllItems(),
               ));

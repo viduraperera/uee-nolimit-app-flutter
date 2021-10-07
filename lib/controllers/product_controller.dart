@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:untitled/constants/firebase.dart';
 import 'package:untitled/models/product.dart';
@@ -24,30 +25,70 @@ class ProducsController extends GetxController {
   }
 
 
-  Stream<List<ProductModel>> getAllProducts () =>
-      firebaseFirestore.collection(collection).snapshots().map((query) =>
-          query.docs.map((item) => ProductModel.fromMap(item.data())).toList());
+  // Stream<List<ProductModel>> getAllProducts () =>
+  //     firebaseFirestore.collection(collection).snapshots().map((query) =>
+  //         query.docs.map((item) => ProductModel.fromMap(item.data())).toList());
+  //
+  // //trending
+  // addToTrending(){
+  //   trending.clear();
+  //   for(ProductModel i in products){
+  //     if(i.status == "trending"){
+  //       trending.add(i);
+  //       print("trending.length ${trending.length}");
+  //     }
+  //   }
+  // }
+  //
+  // //new_arrivals
+  // addToNewArrivals(){
+  //   newArrival.clear();
+  //   for(ProductModel i in products){
+  //     if(i.status == "new_arrivals"){
+  //       newArrival.add(i);
+  //     }
+  //   }
+  // }
 
-  //trending
-  addToTrending(){
+  Stream<List<ProductModel>> getAllProducts () {
+
     trending.clear();
-    for(ProductModel i in products){
-      if(i.status == "trending"){
-        trending.add(i);
-        print("trending.length ${trending.length}");
-      }
-    }
+    newArrival.clear();
+    categoryTops.clear();
+
+    Stream<QuerySnapshot> stream = firebaseFirestore.collection(collection).snapshots();
+
+    return stream.map((query) =>
+        query.docs.map((item) {
+
+          ProductModel p =  ProductModel.fromMap(item.data());
+
+          switch (p.status) {
+            case "trending":
+              trending.add(p);
+              break;
+            case "new_arrivals":
+              newArrival.add(p);
+              break;
+          }
+
+          switch(p.category){
+            case "tops":
+              categoryTops.add(p);
+              break;
+          }
+          // if(p.category == "tops"){
+          //   categoryTops.add(p);
+          // }
+          // else if(p.status == "trending"){
+          //   trending.add(p);
+          // }
+
+
+          return ProductModel.fromMap(item.data());
+        }).toList());
   }
 
-  //new_arrivals
-  addToNewArrivals(){
-    newArrival.clear();
-    for(ProductModel i in products){
-      if(i.status == "new_arrivals"){
-        newArrival.add(i);
-      }
-    }
-  }
 
   //tops
   addCategoryTops(){
