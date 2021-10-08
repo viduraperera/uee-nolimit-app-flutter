@@ -5,6 +5,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:untitled/constants/controllers.dart';
 import 'package:untitled/screens/all_items/Allitems.dart';
 import 'package:untitled/screens/catagory/catergory.dart';
+import 'package:untitled/screens/feedback/feedback.dart';
 import 'package:untitled/screens/home/home.dart';
 import 'package:untitled/screens/home/widgets/shopping_cart.dart';
 import 'package:untitled/screens/profile/profile.dart';
@@ -12,43 +13,34 @@ import 'package:untitled/screens/profile/profile.dart';
 import 'custom_text.dart';
 
 class CustomDrawer extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
-
       child: ListView(
         children: [
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.grey,
-                ),
-              ],
+          CircleAvatar(
+            radius: 55,
+            child: CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('images/profile.jpeg'),
             ),
           ),
-          Obx(()=>UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                  color: Colors.white30
+          Obx(() => UserAccountsDrawerHeader(
+              decoration: BoxDecoration(color: Colors.white30),
+              accountName: Text(
+                userController.userModel.value.name ?? "",
+                style: TextStyle(color: Colors.grey),
               ),
-              accountName: Text(userController.userModel.value.name ?? "",
-              style: TextStyle(
-                color: Colors.grey
-              ),),
-              accountEmail: Text(userController.userModel.value.email ?? "",
-              style: TextStyle(
-                color: Colors.grey
-              ),))),
+              accountEmail: Text(
+                userController.userModel.value.email ?? "",
+                style: TextStyle(color: Colors.grey),
+              ))),
           ListTile(
             leading: Icon(Icons.person),
             title: CustomText(
               text: "Profile",
             ),
-            onTap: ()async {
+            onTap: () async {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => UserProfile(),
               ));
@@ -59,7 +51,7 @@ class CustomDrawer extends StatelessWidget {
             title: CustomText(
               text: "Category",
             ),
-            onTap: ()async {
+            onTap: () async {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => Category(),
               ));
@@ -70,7 +62,7 @@ class CustomDrawer extends StatelessWidget {
             title: CustomText(
               text: "All Items",
             ),
-            onTap: ()async {
+            onTap: () async {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => AllItems(),
               ));
@@ -81,14 +73,18 @@ class CustomDrawer extends StatelessWidget {
             title: CustomText(
               text: "Feedback",
             ),
-            onTap: ()async {},
+            onTap: () async {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => FeedbackScreen(),
+              ));
+            },
           ),
           ListTile(
             leading: Icon(Icons.book),
             title: CustomText(
               text: "Payments History",
             ),
-            onTap: ()async {
+            onTap: () async {
               paymentsController.getPaymentHistory();
             },
           ),
