@@ -7,6 +7,11 @@ import 'package:get/get.dart';
 import 'package:untitled/screens/single_item/singleItem.dart';
 
 class ProductsWidget extends StatelessWidget {
+  final List<ProductModel> items;
+
+  const ProductsWidget({Key key, this.items}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
     return Obx(() => GridView.count(
@@ -15,7 +20,7 @@ class ProductsWidget extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         mainAxisSpacing: 4.0,
         crossAxisSpacing: 10,
-        children: producsController.categoryTops.map((ProductModel product) {
+        children: items.map((ProductModel product) {
           return GestureDetector(
             onTap: (){
               Navigator.of(context).push(MaterialPageRoute(

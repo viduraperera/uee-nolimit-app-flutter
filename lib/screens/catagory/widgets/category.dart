@@ -3,12 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:untitled/constants/controllers.dart';
+import 'package:untitled/models/product.dart';
 import 'package:untitled/screens/home/home.dart';
 import 'package:untitled/screens/home/widgets/products.dart';
 import 'package:untitled/screens/home/widgets/shopping_cart.dart';
 import 'package:untitled/widgets/custom_text.dart';
 
-class AllItems extends StatelessWidget {
+class Categories extends StatelessWidget {
+
+  final List<ProductModel> items;
+
+  const Categories({Key key, this.items}) : super(key: key);
 
 
   @override
@@ -41,7 +46,7 @@ class AllItems extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Container(
         color: Colors.white30,
-        child: ProductsWidget(items: producsController.products),
+        child: ProductsWidget(items: items),
       ),
     );
   }

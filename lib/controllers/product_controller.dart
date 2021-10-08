@@ -24,32 +24,6 @@ class ProducsController extends GetxController {
     products.bindStream(getAllProducts());
   }
 
-
-  // Stream<List<ProductModel>> getAllProducts () =>
-  //     firebaseFirestore.collection(collection).snapshots().map((query) =>
-  //         query.docs.map((item) => ProductModel.fromMap(item.data())).toList());
-  //
-  // //trending
-  // addToTrending(){
-  //   trending.clear();
-  //   for(ProductModel i in products){
-  //     if(i.status == "trending"){
-  //       trending.add(i);
-  //       print("trending.length ${trending.length}");
-  //     }
-  //   }
-  // }
-  //
-  // //new_arrivals
-  // addToNewArrivals(){
-  //   newArrival.clear();
-  //   for(ProductModel i in products){
-  //     if(i.status == "new_arrivals"){
-  //       newArrival.add(i);
-  //     }
-  //   }
-  // }
-
   Stream<List<ProductModel>> getAllProducts () {
 
     trending.clear();
@@ -76,77 +50,23 @@ class ProducsController extends GetxController {
             case "tops":
               categoryTops.add(p);
               break;
+            case "dresses":
+              categoryDresses.add(p);
+              break;
+            case "pants":
+              categoryPants.add(p);
+              break;
+            case "shirts":
+              categoryShirts.add(p);
+              break;
+            case "denims":
+              categoryDenims.add(p);
+              break;
+            case "shoes":
+                categoryShoes.add(p);
+               break;
           }
-          // if(p.category == "tops"){
-          //   categoryTops.add(p);
-          // }
-          // else if(p.status == "trending"){
-          //   trending.add(p);
-          // }
-
-
           return ProductModel.fromMap(item.data());
         }).toList());
-  }
-
-
-  //tops
-  addCategoryTops(){
-    categoryTops.clear();
-    for(ProductModel i in products){
-      if(i.category == "tops"){
-        categoryTops.add(i);
-      }
-    }
-  }
-
-  //pants
-  addCategoryPants(){
-    categoryPants.clear();
-    for(ProductModel i in products){
-      if(i.category == "pants"){
-        categoryPants.add(i);
-      }
-    }
-  }
-
-  //dresses
-  addCategoryDresses(){
-    categoryDresses.clear();
-    for(ProductModel i in products){
-      if(i.category == "dresses"){
-        categoryDresses.add(i);
-      }
-    }
-  }
-
-  //shirts
-  addCategoryShirts(){
-    categoryShirts.clear();
-    for(ProductModel i in products){
-      if(i.category == "shirts"){
-        categoryShirts.add(i);
-      }
-    }
-  }
-
-  //denims
-  addCategoryDenims(){
-    categoryDenims.clear();
-    for(ProductModel i in products){
-      if(i.category == "denims"){
-        categoryDenims.add(i);
-      }
-    }
-  }
-
-  //shoes
-  addCategoryShoes(){
-    categoryShoes.clear();
-    for(ProductModel i in products){
-      if(i.category == "shoes"){
-        categoryShoes.add(i);
-      }
-    }
   }
 }
