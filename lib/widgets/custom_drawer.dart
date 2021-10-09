@@ -19,17 +19,21 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 1, horizontal: 1),
+            margin: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
             //padding: EdgeInsets.all(1),
-            child: CircleAvatar(
-              radius: 55,
+            child: Align(
+              alignment: Alignment.bottomLeft,
               child: CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage('images/profile.jpeg'),
+                radius: 52,
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage('images/profile.jpeg'),
+                ),
               ),
             ),
           ),
-          Obx(() => UserAccountsDrawerHeader(
+          Obx(
+            () => UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: Colors.white30),
               accountName: Text(
                 userController.userModel.value.name ?? "",
@@ -38,7 +42,9 @@ class CustomDrawer extends StatelessWidget {
               accountEmail: Text(
                 userController.userModel.value.email ?? "",
                 style: TextStyle(color: Colors.grey),
-              ))),
+              ),
+            ),
+          ),
           ListTile(
             leading: Icon(Icons.person),
             title: CustomText(

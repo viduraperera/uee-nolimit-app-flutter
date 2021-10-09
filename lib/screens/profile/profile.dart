@@ -62,43 +62,93 @@ class UserProfile extends StatelessWidget {
                   ],
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Full Name:",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Obx(
-                    () => (Text(
-                      userController.userModel.value.name,
-                      style: TextStyle(),
-                    )),
-                  ),
-                  Text(
-                    "Email:",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Obx(
-                    () => (Text(userController.userModel.value.email)),
-                  ),
-                  Text(
-                    "Phone Number: ",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "Arapaima Card Number: ",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ChangePassword(),
-                      ));
-                    },
-                    child: Text("Change Password"),
-                  ),
-                ],
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 1, horizontal: 20),
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Full Name:",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Obx(
+                      () => Align(
+                        alignment: Alignment.centerLeft,
+                        child: (Text(
+                          userController.userModel.value.name,
+                          style: TextStyle(color: Colors.grey),
+                        )),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Email:",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Obx(
+                      () => Align(
+                        alignment: Alignment.centerLeft,
+                        child: (Text(
+                          userController.userModel.value.email,
+                          style: TextStyle(color: Colors.grey),
+                        )),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Phone Number: ",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "071 2310 231",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Arapaima Card Number: ",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "1234 5678 9101 1121",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => ChangePassword(),
+                          ));
+                        },
+                        child: Text("Change Password"),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Card(
                 shape: RoundedRectangleBorder(

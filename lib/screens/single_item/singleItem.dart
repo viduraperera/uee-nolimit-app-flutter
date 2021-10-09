@@ -47,28 +47,35 @@ class SingleItemScreen extends StatelessWidget {
           children: <Widget>[
             Container(
               padding: EdgeInsets.all(40),
-              child: Image.network(product.image, height: 450, fit: BoxFit.fill,),
+              child: Image.network(product.image, height: 500, fit: BoxFit.fill,),
             ),
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Container(
+                    margin: EdgeInsets.symmetric(vertical: 1, horizontal: 15),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Text(product.name.toUpperCase(),
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(product.name.toUpperCase(),
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
-                        Text(
-                          "LKR " +(product.price.toString()),
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Color(0xff4DC6E1),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "LKR " +(product.price.toString()),
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color(0xff4DC6E1),
+                            ),
                           ),
                         ),
                       ],
@@ -97,14 +104,28 @@ class SingleItemScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Text("size " +product.size),
+            SizedBox(height: 35),
             Container(
+              margin: EdgeInsets.symmetric(vertical: 1, horizontal: 25),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Text(product.status, style: TextStyle(fontSize: 15),),
-                  Text(product.whom, style: TextStyle(fontSize: 15),),
-                  Text(product.category, style: TextStyle(fontSize: 15),),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("More Details", style: TextStyle(fontSize: 25),)),
+                  SizedBox(height: 15),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("states:     " +product.status, style: TextStyle(fontSize: 15),)),
+                  SizedBox(height: 5),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("whom:      " +product.whom, style: TextStyle(fontSize: 15),)),
+                  SizedBox(height: 5),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("category: "+product.category, style: TextStyle(fontSize: 15),)),
+                  SizedBox(height: 5),
+                  SizedBox(height: 30),
                 ],
               ),
             ),
