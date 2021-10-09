@@ -40,35 +40,57 @@ class FeedbackScreen extends StatelessWidget {
           color: Colors.white,
           child: ListView(
             children: [
+              SizedBox(height: 40),
               Container(
                 width: 350,
                 child: Column(
                   children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: "Name",
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(15),
+                    Container(
+                      width: 360,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Name",
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(height: 20),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        labelText: "Email",
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(15),
+                    Container(
+                      width: 360,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Email",
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(width: 1, color: Colors.grey),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                         ),
                       ),
                     ),
                     SizedBox(height: 20),
-                    TextField(
-                      maxLines: 5,
-                      decoration: InputDecoration.collapsed(
-                          hintText: "Enter your text here"),
+                    Container(
+                      width: 360,
+                      height: 150,
+                      margin: EdgeInsets.all(1),
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
+                      ),
+                      child: TextField(
+                        maxLines: 5,
+                        decoration: InputDecoration.collapsed(
+                            hintText: "Enter your text here"),
+                      ),
                     ),
+                    SizedBox(height: 30),
                     Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
@@ -92,9 +114,14 @@ class FeedbackScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Text(
-                "Follow us on",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              SizedBox(height: 40),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 1, horizontal: 25),
+                padding: EdgeInsets.all(1),
+                child: Text(
+                  "Follow us on",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
               SizedBox(height: 20),
               Container(
@@ -109,9 +136,19 @@ class FeedbackScreen extends StatelessWidget {
                       facebook,
                       width: 80,
                     ),
-                    Image.asset(
-                      twitter,
-                      width: 80,
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.grey,
+                          width: 1,
+                        ),
+                      ),
+                      child: Image.asset(
+                        twitter,
+                        width: 80,
+                      ),
                     ),
                   ],
                 ),

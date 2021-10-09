@@ -52,8 +52,8 @@ class SingleProductWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: CustomText(
-                  text: "\$${product.price}",
-                  size: 22,
+                  text: "LKR ${product.price}",
+                  size: 18,
                   weight: FontWeight.bold,
                 ),
               ),

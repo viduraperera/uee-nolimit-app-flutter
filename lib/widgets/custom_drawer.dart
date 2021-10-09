@@ -18,11 +18,15 @@ class CustomDrawer extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
-          CircleAvatar(
-            radius: 55,
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 1, horizontal: 1),
+            //padding: EdgeInsets.all(1),
             child: CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('images/profile.jpeg'),
+              radius: 55,
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('images/profile.jpeg'),
+              ),
             ),
           ),
           Obx(() => UserAccountsDrawerHeader(
@@ -88,7 +92,7 @@ class CustomDrawer extends StatelessWidget {
               paymentsController.getPaymentHistory();
             },
           ),
-          SizedBox(height: 150),
+          SizedBox(height: 60),
           ListTile(
             onTap: () {
               userController.signOut();
@@ -101,3 +105,5 @@ class CustomDrawer extends StatelessWidget {
     );
   }
 }
+
+//'images/profile.jpeg'

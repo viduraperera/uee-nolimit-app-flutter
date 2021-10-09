@@ -1,9 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:untitled/constants/controllers.dart';
 import 'package:untitled/models/product.dart';
 import 'package:untitled/screens/all_items/Allitems.dart';
+import 'package:untitled/screens/home/widgets/home_slider.dart';
 import 'package:untitled/screens/home/widgets/new_arrival.dart';
 import 'package:untitled/screens/home/widgets/new_trending.dart';
 import 'package:untitled/screens/home/widgets/products.dart';
@@ -16,7 +18,12 @@ import 'package:untitled/widgets/custom_text.dart';
 class HomeScreen extends StatelessWidget {
 
 
-  const HomeScreen({Key key, }) : super(key: key);
+  final _imagePaths = [
+    './images/discount.jpg',
+    './images/holloween.jpg',
+    './images/discount2.jpg',
+    './images/discount3.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +60,14 @@ class HomeScreen extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(50),
-                  child: Row(),
+                  child: CarouselSlider(
+                      options: CarouselOptions(autoPlay: true),
+                      items: _imagePaths.map((imagePath) {
+                        return Padding(padding: EdgeInsets.symmetric(horizontal: 4),
+                          child: Image.asset(imagePath,
+                              fit: BoxFit.cover),
+                        );
+                      }).toList()),
                 ),
                 Container(
                   child: Row(
@@ -110,7 +123,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Container(
-                  height: 300,
+                  height: 310,
                   child: NewTrending(),
                 ),
               ],

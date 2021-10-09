@@ -35,7 +35,7 @@ class PaymentWidget extends StatelessWidget {
               Expanded(child: Container()),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: CustomText(text: "\$ ${paymentsModel.amount}", color: Colors.black, weight: FontWeight.bold,size: 18,),
+                child: CustomText(text: "LKR ${paymentsModel.amount}", color: Colors.black, weight: FontWeight.bold,size: 18,),
               ),
               SizedBox(width: 5,)
             ],
@@ -44,7 +44,7 @@ class PaymentWidget extends StatelessWidget {
         Column(
           children: paymentsModel.cart.map((item) => ListTile(
             title: CustomText(text: item['name'],),
-            trailing: CustomText(text: "\$ ${item['cost']}",),
+            trailing: CustomText(text: "LKR ${item['cost']}",),
           )).toList()
         ),
 
